@@ -1,0 +1,17 @@
+editTopo.py edits file version 1
+#
+# This file can be used as an argument for editTopo.py --apply
+#
+# created: Mon Aug 31 20:49:20 2020
+# by: aek156
+# via: ./topogtools/editTopo.py --nogui --apply ocean_mask_5_edits.nc ocean_mask.nc mask
+#
+# Remove 3 non-advective cells and open two previously choked channels.
+# See https://github.com/COSIMA/access-om2/issues/210
+#
+#   i     j  old  new
+  175   553  1.0  0.0  # Philippines: remove non-advective cell
+  815   650  1.0  0.0  # USA East Coast: remove non-advective cell (has caused crashes)
+  246   741  0.0  1.0  # Open choked channel west of Sakhalin (Strait of Tartary)
+  818  1079  1.0  0.0  # Canadian Arctic: remove non-advective cell
+  893   737  0.0  1.0  # Open choked channel west of Newfoundland (Strait of Belle Isle)

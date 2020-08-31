@@ -14,7 +14,7 @@ set -e
 
 # ocean_mask.nc sets the land mask in kmt.nc and topography
 
-cp -L --preserve=timestamps /g/data/ik11/inputs/access-om2/input_20200530/mom_025deg/ocean_mask.nc .
+cp -L --preserve=timestamps /g/data/ik11/inputs/access-om2/input_20200530/mom_025deg/ocean_mask.nc ocean_mask_original.nc
 cp -L --preserve=timestamps /g/data/ik11/inputs/access-om2/input_20200530/mom_025deg/ocean_hgrid.nc .
 cp -L --preserve=timestamps /g/data/ik11/inputs/access-om2/input_20200530/mom_025deg/ocean_vgrid.nc .
 cp -L --preserve=timestamps /g/data/ik11/inputs/access-om2/input_20200530/mom_025deg/ocean_mosaic.nc .
@@ -26,7 +26,7 @@ cd topogtools
 ./build.sh
 cd -
 
-# TODO: edit ocean_mask.nc
+./topogtools/editTopo.py --nogui --apply ocean_mask_edits.txt --output ocean_mask.nc ocean_mask_original.nc mask  # see https://github.com/COSIMA/access-om2/issues/210
 ./topogtools/float_vgrid  # this overwrites ocean_vgrid.nc
 # ./topogtools/gen_topo  # generates topog_new.nc; takes about 2 hours at 0.25 deg, so must be run via qsub of this script
 ./topogtools/deseas topog_new.nc topog_new_deseas.nc  # remove seas

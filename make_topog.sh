@@ -36,4 +36,5 @@ cp topog_new_deseas.nc topog_new_deseas_partialcell.nc
 ./topogtools/apply_mask.py topog_new_deseas_partialcell_mindepth.nc ocean_mask.nc topog_new_deseas_partialcell_mindepth_masked.nc  # applies ocean_mask.nc
 ./topogtools/fix_nonadvective_mosaic topog_new_deseas_partialcell_mindepth_masked.nc topog_new_deseas_partialcell_mindepth_masked_fixnonadvective.nc  # automatically fix non-advective cells
 ./topogtools/check_nonadvective_mosaic topog_new_deseas_partialcell_mindepth_masked_fixnonadvective.nc
+cp topog_new_deseas_partialcell_mindepth_masked_fixnonadvective.nc topog.nc
 ncrename -O -v mask,kmt ocean_mask.nc kmt.nc  # make CICE mask kmt.nc from ocean_mask.nc

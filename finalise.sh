@@ -21,3 +21,6 @@ ncatted -O -h -a history,global,a,c," | Created on $(date) using https://github.
 ncatted -O -h -a history,global,a,c," | Updated on $(date) using https://github.com/COSIMA/make_025deg_topo/tree/$(git rev-parse --short HEAD)" ocean_mask.nc
 ncatted -O -h -a history,global,a,c," | Created on $(date) using https://github.com/COSIMA/make_025deg_topo/tree/$(git rev-parse --short HEAD)" kmt.nc
 ncatted -O -h -a history,global,a,c," | Updated on $(date) using https://github.com/COSIMA/make_025deg_topo/tree/$(git rev-parse --short HEAD)" ocean_vgrid.nc
+
+ncatted -O -h -a history,global,a,c," and based on GEBCO_2014 v20150318 30 arc-second topography" topog.nc
+

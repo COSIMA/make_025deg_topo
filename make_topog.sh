@@ -28,7 +28,7 @@ cd -
 
 ./topogtools/editTopo.py --overwrite --nogui --apply ocean_mask_edits.txt --output ocean_mask.nc ocean_mask_original.nc mask  # see https://github.com/COSIMA/access-om2/issues/210
 ./topogtools/float_vgrid  # this overwrites ocean_vgrid.nc
-./topogtools/gen_topo  # generates topog_new.nc; takes about 2 hours at 0.25 deg, so must be run via qsub of this script
+# ./topogtools/gen_topo  # generates topog_new.nc; takes about 2 hours at 0.25 deg, so must be run via qsub of this script
 ./topogtools/editTopo.py --overwrite --nogui --apply topog_edits.txt --output topog_new_edited.nc topog_new.nc
 ./topogtools/deseas topog_new_edited.nc topog_new_edited_deseas.nc  # remove seas
 cp topog_new_edited_deseas.nc topog_new_edited_deseas_partialcell.nc

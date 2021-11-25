@@ -1647,6 +1647,31 @@ editTopo.py edits file version 1
    1203   827  15.009523391723633  35.0
    1197   797  28.920373916625977  35.0
 #
+# created: Thu Nov 25 16:00:43 2021
+# by: aek156
+# via: /g/data/ik11/inputs/access-om2/bin/editTopo.py --ref /g/data/ik11/inputs/access-om2/input_20211124_025deg_topog/mom_025deg/topog.nc --apply topog_edits.txt topog.nc
+#
+# Make a continuous 35m deep outlet channel to the Baltic Sea.
+# see item 1 in https://github.com/COSIMA/access-om2/issues/158#issuecomment-963889409
+# and https://github.com/COSIMA/access-om2/issues/158#issuecomment-978446270
+#
+   1167   773  31.26249885559082   35.0
+   1168   773  31.464580535888672  35.0
+   1167   776  33.76911544799805   35.0
+   1168   776  33.76911544799805   35.0
+   1168   777  31.280000686645508  35.0
+   1163   780  33.67916488647461   35.0
+   1172   762  32.09019470214844   35.0
+   1172   761  33.76911544799805   35.0
+   1174   760  33.76911544799805   35.0
+   1175   760  33.32777404785156   35.0
+   1178   760  33.76911544799805   35.0
+   1175   764  33.76911544799805   35.0
+   1190   762  31.26470375061035   35.0
+   1188   777  32.76241683959961   35.0
+   1172   763  33.76911544799805   35.0
+   1171   763  30.494115829467773  35.0
+#
 # created: Thu Nov 11 14:42:23 2021
 # by: aek156
 # via: /g/data/ik11/inputs/access-om2/bin/editTopo.py --ref /g/data/ik11/inputs/access-om2/input_20200530/mom_025deg/topog.nc edit_topog.nc

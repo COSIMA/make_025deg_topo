@@ -15,3 +15,12 @@ editTopo.py edits file version 1
   246   741  0.0  1.0  # Open choked channel west of Sakhalin (Strait of Tartary)
   818  1079  1.0  0.0  # Canadian Arctic: remove non-advective cell
   893   737  0.0  1.0  # Open choked channel west of Newfoundland (Strait of Belle Isle)
+#
+# created: Thu Sep  8 14:25:30 2022
+# by: mo1833
+# via: ./topogtools/editTopo.py ocean_mask_fixed.nc mask
+#
+# Remove 1 non-advective edge by removing an island on the Antarctic coast.
+#
+#   i    j  old  new
+  850  135  0.0  1.0

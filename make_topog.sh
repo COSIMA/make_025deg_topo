@@ -26,7 +26,7 @@ cd topogtools
 ./build.sh
 cd -
 
-./topogtools/editTopo.py --overwrite --nogui --apply ocean_mask_edits.txt --output ocean_mask.nc ocean_mask_original.nc mask  # see https://github.com/COSIMA/access-om2/issues/210
+# Creation of topography file
 ./topogtools/float_vgrid  # this overwrites ocean_vgrid.nc
 # ./topogtools/gen_topo  # generates topog_new.nc; takes about 2 hours at 0.25 deg, so must be run via qsub of this script
 ./topogtools/editTopo.py --overwrite --nogui --apply topog_edits.txt --output topog_new_edited.nc topog_new.nc
@@ -34,6 +34,14 @@ cd -
 cp topog_new_edited_deseas.nc topog_new_edited_deseas_partialcell.nc
 ./topogtools/do_partial_cells topog_new_edited_deseas_partialcell.nc 1.0 0.2  # this overwrites its input, so we make copy in prev line
 ./topogtools/min_max_depth topog_new_edited_deseas_partialcell.nc topog_new_edited_deseas_partialcell_mindepth.nc 4  # can produce non-advective cells
+
+# Creation of land mask file
+./topogtools/topog2mask.py topog_new.nc dummy.nc ocean_mask_gebco.nc 0.5 # Creates new mask for the GEBCO 2014 topography
+./topogtools/combine_masks.py ocean_mask_original.nc ocean_mask_gebco.nc ocean_hgrid.nc ocean_mask_fixed.nc -60 # Combine new mask with original one, taking the new one for the antarctic region
+./topogtools/editTopo.py --overwrite --nogui --apply ocean_mask_edits.txt --output ocean_mask_fixed_edited.nc ocean_mask_fixed.nc mask  # see https://github.com/COSIMA/access-om2/issues/210
+./topogtools/fix_nonadvective_mask.py ocean_mask_fixed_edited.nc ocean_mask.nc  # automatically fix non-advective cells
+
+# Application of the land mask and fixing of nonadvective cells
 ./topogtools/apply_mask.py topog_new_edited_deseas_partialcell_mindepth.nc ocean_mask.nc topog_new_edited_deseas_partialcell_mindepth_masked.nc  # applies ocean_mask.nc
 ./topogtools/fix_nonadvective_mosaic topog_new_edited_deseas_partialcell_mindepth_masked.nc topog_new_edited_deseas_partialcell_mindepth_masked_fixnonadvective.nc  # automatically fix non-advective cells
 ./topogtools/check_nonadvective_mosaic topog_new_edited_deseas_partialcell_mindepth_masked_fixnonadvective.nc

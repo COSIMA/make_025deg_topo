@@ -24,3 +24,25 @@ editTopo.py edits file version 1
 #
 #   i    j  old  new
   850  135  0.0  1.0
+#
+# created: Thu May 11 12:38:40 2023
+# by: mo1833
+# via: ./topogtools/editTopo.py ocean_mask.nc mask
+#
+# Remove seas created from fixing non-advective cells
+#
+#   i    j  old  new
+  804   74  1.0  0.0
+  804   75  1.0  0.0
+  805   73  1.0  0.0
+  805   74  1.0  0.0
+  805   75  1.0  0.0
+  806   73  1.0  0.0
+  806   74  1.0  0.0
+  806   75  1.0  0.0
+  809   76  1.0  0.0
+  809   75  1.0  0.0
+  809   74  1.0  0.0
+  810   74  1.0  0.0
+  810   75  1.0  0.0
+  810   76  1.0  0.0
